@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meme Web Nyeleneh</title>
+    <link rel="icon" type="image/x-icon" href="img/PR.png">
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Russo+One&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Press Start 2P', cursive;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        h1, h2 {
+            font-family: 'Creepster', cursive;
+            color: #fff;
+        }
+
+        /* Navbar */
+        .crazy-navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: #2575fc;
+            padding: 15px 20px;
+            z-index: 100;
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .crazy-navbar ul {
+            list-style-type: none;
+            padding: 0;
+            text-align: center;
+        }
+
+        .crazy-navbar li {
+            display: inline-block;
+            margin: 0 20px;
+        }
+
+        .crazy-navbar a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 700;
+            padding: 10px 20px;
+            border-radius: 25px;
+            background: linear-gradient(135deg, #ff6f61, #ffab91);
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        .crazy-navbar a:hover {
+            transform: translateY(-3px);
+            background: linear-gradient(135deg, #ffab91, #ff6f61);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            height: 100vh;
+            background: url('https://cdn.kibrispdr.org/data/1756/background-gif-animasi-23.gif') no-repeat center center/cover;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            color: #fff;
+            text-shadow: 0 0 20px rgba(0, 0, 0, 0.8), 0 0 40px rgba(0, 0, 0, 0.7);
+        }
+
+        .crazy-title {
+            font-size: 6rem;
+            animation: slideIn 1s ease-out;
+            margin: 0;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.9);
+        }
+
+        .hero-section h2 {
+            font-size: 3rem;
+            margin-top: 10px;
+            opacity: 0.8;
+            animation: fadeIn 2s ease-out 1s;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.9);
+        }
+
+        .hero-section p {
+            font-size: 1.5rem;
+            margin-top: 20px;
+            animation: fadeIn 2s ease-out 2s;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideIn {
+            0% { transform: translateY(50px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #ff6f61, #ffab91);
+            border-radius: 30px;
+            text-align: center;
+            animation: slideIn 1.5s ease-out;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .copy-section {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            animation: slideIn 1.5s ease-out 0.5s;
+        }
+
+        .copy-section button {
+            padding: 10px 20px;
+            background-color: #ff6f61;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            color: #fff;
+            font-size: 16px;
+            transition: background 0.3s ease;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.9);
+        }
+
+        .copy-section button:hover {
+            background-color: #ffab91;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Tokenomics Section */
+        .tokenomics {
+            padding: 80px 20px;
+            background: #2575fc;
+            border-radius: 30px;
+            color: #fff;
+            text-align: center;
+            animation: fadeIn 2s ease-out 1s;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .tokenomics p {
+            font-size: 1.3rem;
+            margin: 10px 0;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.9);
+        }
+
+        /* Meme Gallery Section */
+        .meme-gallery {
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #2575fc, #6a11cb);
+            border-radius: 30px;
+            text-align: center;
+            margin: 60px 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .meme-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            justify-items: center;
+            animation: fadeIn 2s ease-out 1s;
+        }
+
+        .meme img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .meme img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Social Section */
+        .social-section {
+            padding: 50px 20px;
+            background-color: #ff6f61;
+            text-align: center;
+            color: #fff;
+            border-radius: 0 0 30px 30px;
+        }
+
+        .social-icons img {
+            width: 60px;
+            margin: 0 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .social-icons img:hover {
+            transform: scale(1.2);
+        }
+
+        /* Footer */
+        footer {
+            padding: 20px 0;
+            background-color: #2575fc;
+            text-align: center;
+            color: #fff;
+            border-radius: 30px;
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            .meme-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .meme-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .crazy-title {
+                font-size: 4rem;
+            }
+
+            .hero-section h2 {
+                font-size: 1.8rem;
+            }
+
+            .hero-section p {
+                font-size: 1.2rem;
+            }
+        }
+
+        /* Roadmap Section Styling */
+.roadmap-section {
+    background-color: #00b7ff;
+    padding: 50px 0;
+    text-align: center;
+    color: #fff;
+}
+
+.roadmap-section h2 {
+    font-size: 36px;
+    color: #ffcc00;
+    margin-bottom: 30px;
+    font-family: 'Russo One', sans-serif;
+    text-shadow: 2px 2px 10px #ff00ff, 0 0 25px #ff0000, 0 0 5px #ff0000;
+}
+
+.roadmap-timeline {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.roadmap-step {
+    background-color: #15c7c7;
+    border-radius: 10px;
+    padding: 20px;
+    width: 80%;
+    max-width: 600px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    color: #ffcc00;
+    transition: transform 0.3s ease-in-out;
+}
+
+.roadmap-step:hover {
+    transform: scale(1.05);
+}
+
+.roadmap-step h3 {
+    font-size: 28px;
+    color: #ffcc00;
+    margin-bottom: 10px;
+    font-family: 'Russo One', sans-serif;
+    text-shadow: 2px 2px 10px #ff00ff, 0 0 25px #ff0000, 0 0 5px #ff0000;
+}
+
+.roadmap-step p {
+    font-size: 18px;
+    color: #fff;
+    text-shadow: 1px 1px 3px #000;
+}
+
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="crazy-navbar">
+    <ul>
+        <li><a href="#home">🔥 Home</a></li>
+        <li><a href="#about">💡 About</a></li>
+        <li><a href="#tokenomics">💰 Tokenomics</a></li>
+        <li><a href="#memes">😂 Memes</a></li>
+        <li><a href="#social">🌍 Social</a></li>
+    </ul>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero-section" id="home">
+    <h1 class="crazy-title">Meme Web</h1>
+    <h2>The Fun Starts Here</h2>
+    <p>Join the funniest meme revolution in the world!</p>
+</section>
+
+<!-- About Section -->
+<section class="about-section" id="about">
+    <h2>About Us</h2>
+    <p>We are dedicated to bringing you the best memes, news, and laughs. Stay tuned for more!</p>
+    <div class="copy-section">
+        <p id="copy-text">CAXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</p>
+        <button onclick="copyText()">Copy Text</button>
+    </div>
+</section>
+
+<!-- Tokenomics Section -->
+<section class="tokenomics" id="tokenomics">
+    <h2>Tokenomics</h2>
+    <p>Token Name = $JUCE</p>
+        <p>TICKER = $JUCE</p>
+        <p>TOTAL SUPPLY = 1,000,000,000</p>
+        <p>LIQUIDITY POOL BURNED = 100%</p>
+        <p>TAXES = 0%</p>
+</section>
+
+<!-- Roadmap Section -->
+<section class="roadmap-section" id="roadmap">
+    <h2>Our Roadmap</h2>
+    <div class="roadmap-timeline">
+        <div class="roadmap-step">
+            <h3>Phase 1</h3>
+            <p>Launch the platform and introduce the first meme coin.</p>
+        </div>
+        <div class="roadmap-step">
+            <h3>Phase 2</h3>
+            <p>Integrate meme-based rewards and community voting system.</p>
+        </div>
+        <div class="roadmap-step">
+            <h3>Phase 3</h3>
+            <p>Expand the meme marketplace and release mobile app.</p>
+        </div>
+        <div class="roadmap-step">
+            <h3>Phase 4</h3>
+            <p>Global meme partnership and meme events.</p>
+        </div>
+    </div>
+</section>
+
+
+<!-- Meme Gallery Section -->
+<section class="meme-gallery" id="memes">
+    <h2>Meme Gallery</h2>
+    <div class="meme-grid">
+        <div class="meme"><img src="https://via.placeholder.com/300x300?text=Meme+1" alt="Meme 1"></div>
+        <div class="meme"><img src="https://via.placeholder.com/300x300?text=Meme+2" alt="Meme 2"></div>
+        <div class="meme"><img src="https://via.placeholder.com/300x300?text=Meme+3" alt="Meme 3"></div>
+        <div class="meme"><img src="https://via.placeholder.com/300x300?text=Meme+4" alt="Meme 4"></div>
+    </div>
+</section>
+
+<!-- Social Section -->
+<section class="social-section" id="social">
+    <h2>Follow Us</h2>
+    <div class="social-icons">
+                   <a href="#"><img src="https://www.freepnglogos.com/uploads/twitter-x-logo-png/twitter-x-logo-png-9.png" width="70px"></a>
+            <a href="#"><img src="https://logodownload.org/wp-content/uploads/2017/11/telegram-logo-8.png" width="70px"></a>
+            <a href="#"><img src="https://static.vecteezy.com/system/resources/previews/021/819/342/non_2x/fun-green-pill-free-png.png" width="70px"></a>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <p>&copy; 2024 Meme Web. All Rights Reserved.</p>
+</footer>
+
+<script>
+    function copyText() {
+        const text = document.getElementById('copy-text').textContent;
+        navigator.clipboard.writeText(text).then(() => {
+            alert('Teks disalin!');
+        }).catch(err => {
+            console.error('Error:', err);
+        });
+    }
+</script>
+
+</body>
+</html>
